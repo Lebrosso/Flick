@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html ng-app="imageViewer">
+<head>
+  <title>Photo Viewer</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.12/angular.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.12/angular-resource.js"></script>
+  
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
+</head>
+
+<body >
+
+
+
+  <div id ="picsContainer" ng-controller="AppGallery">
+      <ul>
+    <div   class =  "pics"  ng-repeat="x in data">
+      <span>by</span>
+      {{ x.title }}
+    </div>
+  </ul>
+    <!--   {{data}}  -->
+  
+  </div>
+
+
+<script>
+angular.module('photoApp',['ngRoute']).config(function($httpProvider){
+	  delete $httpProvider.defaults.headers.common['X-Requested-With'];
+	});
+var app = angular.module('imageViewer', ['ng', 'ngResource']);
+
+app.controller('AppGallery',[ '$scope','$http', function AppGallery($scope, $http) {
+$http.jsonp('https://api.flickr.com/services/feeds/photos_public.gne?format=json').success(function (data) {
+  
+});
+	
+	jsonFlickrFeed = function(data){
+	$scope.data = data.items;
+	console.log(data);
+	}
+}]);
+</script>
+
+
+
+
+
+</body>
+</html>

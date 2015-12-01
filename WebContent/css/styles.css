@@ -1,0 +1,12 @@
+@CHARSET "UTF-8";
+
+.pics{
+border-style: solid;
+border-width: 1px;
+padding:1%; 
+width:20%;
+}
+
+.picsContainer{
+display:inline;	
+}
