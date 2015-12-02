@@ -8,15 +8,17 @@
   <link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
 
-<body >
+<body>
 
-
-
-  <div id ="picsContainer" ng-controller="AppGallery">
+   <div id ="picsContainer" ng-controller="AppGallery">
       <ul>
     <div   class =  "pics"  ng-repeat="x in data">
-      <span>by</span>
-      {{ x.title }}
+    <img src = "{{x.media.m}}"/><br>
+    <a ng-href="{{x.media.m}}">{{x.title}}</a>
+      <span>&nbsp;&nbsp;by&nbsp;&nbsp;</span>
+      <a ng-href="{{x.author}}">{{x.author}}</a><br>
+      {{ x.description }}<br>
+      {{ x.tags }}<br>
     </div>
   </ul>
     <!--   {{data}}  -->
