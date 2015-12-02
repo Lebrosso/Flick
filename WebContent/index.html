@@ -17,7 +17,11 @@
     <a ng-href="{{x.media.m}}">{{x.title}}</a>
       <span>&nbsp;&nbsp;by&nbsp;&nbsp;</span>
       <a ng-href="{{x.link}}">{{x.author}}</a><br>
-      <p ng-bind-html-unsafe=x.description"></p><br>
+      
+      <p ng-bind-html-unsafe="x.description"></p>
+    
+      
+      <br>
       {{ x.tags }}<br>
     </div>
   </ul>
@@ -39,7 +43,7 @@ $http.jsonp('https://api.flickr.com/services/feeds/photos_public.gne?format=json
 	
 	jsonFlickrFeed = function(data){
 	$scope.data = data.items;
-	console.log(data);
+
 	}
 }]);
 </script>
