@@ -11,14 +11,18 @@
 
 <body>
 
+   Search: <input ng-model="query">
+
    <div id ="picsContainer" ng-controller="AppGallery">
       <ul>
-    <div   class =  "pics"  ng-repeat="x in data">
+    <div   class =  "pics"  ng-repeat="x in data | filter:query">
     <img src = "{{x.media.m}}"/><br>
     <a ng-href="{{x.media.m}}">{{x.title}}</a>
       <span>&nbsp;&nbsp;by&nbsp;&nbsp;</span>
       <a ng-href="{{x.link}}">{{x.author}}</a><br>
+     
       
+     
       <p ng-bind-html="x.description"></p>
     
       <br>
@@ -34,6 +38,9 @@
 angular.module('photoApp',['ngRoute']).config(function($httpProvider){
 	  delete $httpProvider.defaults.headers.common['X-Requested-With'];
 	});
+	
+	
+	
 var app = angular.module('imageViewer', ['ng', 'ngResource','ngSanitize']);
 
 app.controller('AppGallery',[ '$scope','$http', function AppGallery($scope, $http) {
