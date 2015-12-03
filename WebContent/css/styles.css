@@ -1,11 +1,20 @@
 @CHARSET "UTF-8";
 
+body{
+overflow:auto;	
+}
+
+.desc-wrapper img, .desc-wrapper:first-child {
+      display: none;
+}
+
 .pics{
 border-style: solid;
 border-width: 1px;
 padding:1%; 
 min-width:20%;
 float:left;
+
 }
 
 .picsContainer{

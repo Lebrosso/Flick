@@ -15,15 +15,15 @@
 
    <div id ="picsContainer" ng-controller="AppGallery">
       <ul>
-    <div   class =  "pics"  ng-repeat="x in data | filter:query">
+    <div   class =  "pics"  ng-repeat="x in data | filter:query ">
     <img src = "{{x.media.m}}"/><br>
     <a ng-href="{{x.media.m}}">{{x.title}}</a>
       <span>&nbsp;&nbsp;by&nbsp;&nbsp;</span>
       <a ng-href="{{x.link}}">{{x.author}}</a><br>
      
-      
-     
-      <p ng-bind-html="x.description"></p>
+      <div class = "desc-wrapper">
+      <p ng-bind-html="x.description "></p>
+      </div>
     
       <br>
       {{ x.tags }}<br>
@@ -53,6 +53,18 @@ $http.jsonp('https://api.flickr.com/services/feeds/photos_public.gne?format=json
 
 	}
 }]);
+
+angular.module('scroll', []).directive('whenScrolled', function() {
+    return function(scope, elm, attr) {
+        var raw = elm[0];
+        
+        elm.bind('scroll', function() {
+            if (raw.scrollTop + raw.offsetHeight >= raw.scrollHeight) {
+                scope.$apply(attr.whenScrolled);
+            }
+        });
+    };
+});
 </script>
 
 
