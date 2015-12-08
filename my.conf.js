@@ -17,16 +17,9 @@ module.exports = function(config) {
     files: [
       'test-main.js',
       {pattern: 'karma start', included: false},
-      {pattern: '"js/*"', included: false},
-      {pattern: 'ls', included: false},
-      {pattern: '"js/*"', included: false},
-      {pattern: '[1mWhich testing framework do you want to use ?[22m8', included: false},
-      {pattern: '"js/*"', included: false},
-      {pattern: '[1mjs/*', included: false},
-      {pattern: '[1mjs/*.js', included: false},
-      {pattern: 'test/*.js', included: false},
-      {pattern: 'test/*.js', included: false},
-      {pattern: 'js/*.js', included: false}
+      {pattern: 'WebContent/test/**/*.js', included: false},
+      {pattern: 'WebContent/test/**/*.js', included: false},
+      {pattern: 'WebContent/js/**/*.js', included: false}
     ],
 
 
