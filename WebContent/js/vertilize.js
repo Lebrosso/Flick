@@ -6,12 +6,12 @@
  */
 (function () {
   "use strict";
-
   var module = angular.module('angular.vertilize', []);
-
   // Vertilize Container
   module.directive('vertilizeContainer', [
+                                          
     function(){
+    	
       return {
         restrict: 'EA',
         controller: [
@@ -98,5 +98,6 @@
       };
     }
   ]);
+  
 
 }());

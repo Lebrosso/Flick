@@ -1,6 +1,6 @@
 
 
-describe('Hello World example ', function() {
+/*describe('Hello World example ', function() {
 
 	beforeEach(module('myApp'));
 
@@ -17,4 +17,4 @@ describe('Hello World example ', function() {
 	expect(scope.greeting).toEqual('Hello world!');
 	});
 
-	});
+	});  */

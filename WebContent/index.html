@@ -23,9 +23,9 @@
 
    <div  vertilize-container id ="picsContainer"    ng-controller="AppGallery">
       
-    <div  class =  "pics"    ng-repeat="x in data | filter:query ">
-    <div  vertilize>
-    <img src = "{{x.media.m}}"/><br>
+    <div  vertilize class =  "pics"    ng-repeat="x in data | filter:query">
+    
+    <img lightbox-resize-image data-ng-src = "{{x.media.m}}"/><br>
     <a ng-href="{{x.media.m}}">{{x.title}}</a>
       <span>&nbsp;&nbsp;by&nbsp;&nbsp;</span>
       <a ng-href="{{x.link}}">{{x.author}}</a><br>
@@ -39,7 +39,7 @@
     </div>
   
     <!--   {{data}}  -->
-  </div>
+ 
   </div>
   
   </div>

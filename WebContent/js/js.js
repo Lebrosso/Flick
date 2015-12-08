@@ -30,4 +30,20 @@ angular.module('scroll', []).directive('whenScrolled', function() {
 });
 
 
+app.directive('lightboxResizeImage', function($timeout) {
+	  return {
+	      restrict: 'A',
+	      link: function(scope, elem, attrs) {
+	    	  $timeout(function() {
+                  
+                	  console.log(elem[0].naturalWidth);                     
+                  
+              },0);
+
+	      }
+	  }
+	    });
+
+
+
 
