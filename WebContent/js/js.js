@@ -7,6 +7,8 @@ angular.module('photoApp',['ngRoute']).config(function($httpProvider){
 var app = angular.module('imageViewer', ['ng', 'ngResource','ngSanitize']);
 
 app.controller('AppGallery',[ '$scope','$http', function AppGallery($scope, $http) {
+	
+$scope.maxWidth = 0;	
 $http.jsonp('https://api.flickr.com/services/feeds/photos_public.gne?format=json').success(function (data) {
   
 });
@@ -34,16 +36,17 @@ app.directive('lightboxResizeImage', function($timeout) {
 	  return {
 	      restrict: 'A',
 	      link: function(scope, elem, attrs) {
-	    	  $timeout(function() {
-                  
-                	  console.log(elem[0].naturalWidth);                     
-                  
-              },0);
-
+	    	  elem.on('load', function() {
+                 
+                	  console.log(elem[0].naturalWidth);     
+                	  if(scope.maxWidth  < elem[0].naturalWidth)
+                		  {
+                		  scope.maxWidth = elem[0].naturalWidth; 
+                		  }
+                		  ;
+                	  
+	          });
 	      }
-	  }
-	    });
-
-
-
+	    };
+	 });
 
