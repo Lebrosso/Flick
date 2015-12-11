@@ -10,7 +10,7 @@
   var module = angular.module('angular.vertilize', []);
 
   // Vertilize Container
-  module.directive('vertilizeContainer', [
+ module.directive('vertilizeContainer', [
     function(){
       return {
         restrict: 'EA',
@@ -56,10 +56,15 @@
   // Vertilize Item
   module.directive('vertilize', [
     function(){
+    	
       return {
         restrict: 'EA',
         require: '^vertilizeContainer',
         link: function(scope, element, attrs, parent){
+        	
+        	 element.ready(function() {
+        	
+        	
           // My index allocation
           var myIndex = parent.allocateMe();
 
@@ -70,6 +75,7 @@
               .css({
                 height: '',
                 width: element.width(),
+               // width : element.naturalWidth,
                 position: 'fixed',
                 top: 0,
                 left: 0,
@@ -78,6 +84,7 @@
             element.after(clone);
             var realHeight = clone.height();
             clone['remove']();
+           
             return realHeight;
           };
 
@@ -91,12 +98,15 @@
           // Watch for tallest height change
           scope.$watch(parent.getTallestHeight, function(tallestHeight){
             if (tallestHeight){
+            	  console.log('test'+tallestHeight);
+            	  tallestHeight = 360;
               element.css('height', tallestHeight);
             }
           });
         }
-      };
+        );
+        }};
     }
-  ]);
+  ]);  
 
 }());
