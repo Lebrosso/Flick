@@ -2,7 +2,7 @@
 <html ng-app="imageViewer">
 <head>
   <title>Photo Viewer</title>
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.12/angular.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.12/angular-resource.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular-sanitize.min.js"></script>
@@ -10,18 +10,26 @@
   <script src="test/tests.js"></script>
   <script src="js/js.js"></script>
   <script src="js/vertilize.js"></script>
- 
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
   
+ 
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
 
 <body>
 
+   <div   ng-controller="loadController">
+   <div class = "fa fa-spinner fa-spin" ng-show="loading">Loading</div> 
+   </div>
+
   <div id = "mainContainer">
   
-  <p id = "pageTitle">Flickr feed</p><br>
- 
   <span id = "search"> Search: <input ng-model="query">  </span>
+  
+  <p id = "pageTitle">Flickr feed</p><br>
+  
+  
 
    <div  vertilize-container id ="picsContainer"    ng-controller="AppGallery">
       

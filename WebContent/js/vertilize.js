@@ -62,8 +62,8 @@
         require: '^vertilizeContainer',
         link: function(scope, element, attrs, parent){
         	
-        	 element.ready(function() {
-        	
+          	
+          
         	
           // My index allocation
           var myIndex = parent.allocateMe();
@@ -99,12 +99,12 @@
           scope.$watch(parent.getTallestHeight, function(tallestHeight){
             if (tallestHeight){
             	  console.log('test'+tallestHeight);
-            	  tallestHeight = 360;
+            	  tallestHeight = 400;
               element.css('height', tallestHeight);
             }
           });
-        }
-        );
+        
+        
         }};
     }
   ]);  
