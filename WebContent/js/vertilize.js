@@ -62,9 +62,6 @@
         require: '^vertilizeContainer',
         link: function(scope, element, attrs, parent){
         	
-          	
-          
-        	
           // My index allocation
           var myIndex = parent.allocateMe();
 
@@ -98,8 +95,7 @@
           // Watch for tallest height change
           scope.$watch(parent.getTallestHeight, function(tallestHeight){
             if (tallestHeight){
-            	  console.log('test'+tallestHeight);
-            	  tallestHeight = 400;
+            	  tallestHeight = 405;
               element.css('height', tallestHeight);
             }
           });

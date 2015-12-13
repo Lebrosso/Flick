@@ -4,7 +4,21 @@ angular.module('photoApp',['ngRoute']).config(function($httpProvider){
 	
 var app = angular.module('imageViewer', ['ng', 'ngResource','ngSanitize','angular.vertilize']);
 
-app.controller('AppGallery',[ '$scope','$http', function AppGallery($scope, $http) {
+
+app.provider({
+	
+	$exceptionHandler: function(){
+    var handler = function(exception, cause) {
+        alert(exception);  
+    };
+
+    this.$get = function() {
+        return handler;
+    };
+}
+});  
+
+app.controller('AppGallery',[ '$scope','$http','$exceptionHandler', function AppGallery($scope,$http,$exceptionHandler) {
 	
 $scope.maxWidth = 0;	
 $scope.$emit('LOAD');
@@ -39,6 +53,8 @@ angular.module('scroll', []).directive('whenScrolled', function() {
         });
     };
 });
+
+
 
 
 app.directive('lightboxResizeImage', function($timeout) {
