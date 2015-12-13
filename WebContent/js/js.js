@@ -66,9 +66,8 @@ app.directive('lightboxResizeImage', function($timeout) {
                 	  if(scope.maxWidth  < elem[0].naturalWidth)
                 		  {
                 	
-                		  scope.maxWidth = 2000;
-                		  scope.width=50;
-                		  scope.bgColor = 'red';
+                		  scope.maxWidth = elem[0].naturalWidth;
+                		
                 		  
                 		  }
                 		  ;
