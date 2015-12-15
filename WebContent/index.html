@@ -28,7 +28,7 @@
   <p id = "pageTitle">Flickr feed</p><br>
   
    <div  vertilize-container id ="picsContainer"    ng-controller="AppGallery">
-      
+      <div ng-view></div>
     <div  vertilize class =  "pics"  ng-repeat="x in data | filter:query">
     
     <img lightbox-resize-image data-ng-src = "{{x.media.m}}"/><br>
@@ -37,7 +37,7 @@
       <a ng-href="{{x.link}}">{{x.author}}</a><br>
      
       <div class = "desc-wrapper">
-      <p ng-bind-html="x.description "></p>
+      <p ng-bind-html="x.description " ></p>
       </div>
     
       <br>

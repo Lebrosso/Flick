@@ -18,7 +18,7 @@ app.provider({
 }
 });  
 
-app.controller('AppGallery',[ '$scope','$http','$exceptionHandler', function AppGallery($scope,$http,$exceptionHandler) {
+app.controller('AppGallery',[ '$scope','$http','$exceptionHandler', function AppGallery($scope,$http,$exceptionHandler){
 	
 $scope.maxWidth = 0;	
 $scope.$emit('LOAD');
@@ -28,8 +28,8 @@ $scope.$emit('UNLOAD');
 	
 	jsonFlickrFeed = function(data){
 	$scope.data = data.items;
-
 	}
+
 }]);
 
 app.controller('loadController',[ '$scope','$http', function($scope, $http) {
@@ -40,42 +40,6 @@ app.controller('loadController',[ '$scope','$http', function($scope, $http) {
 	}]);
 
 
-
-
-angular.module('scroll', []).directive('whenScrolled', function() {
-    return function(scope, elm, attr) {
-        var raw = elm[0];
-        
-        elm.bind('scroll', function() {
-            if (raw.scrollTop + raw.offsetHeight >= raw.scrollHeight) {
-                scope.$apply(attr.whenScrolled);
-            }
-        });
-    };
-});
-
-
-
-
-app.directive('lightboxResizeImage', function($timeout) {
-	  return {
-	      restrict: 'A',
-	      link: function(scope, elem, attrs) {
-	    	  elem.on('load', function() {
-	    		
-                	  if(scope.maxWidth  < elem[0].naturalWidth)
-                		  {
-                	
-                		  scope.maxWidth = elem[0].naturalWidth;
-                		
-                		  
-                		  }
-                		  ;
-                	  
-	          });
- 	      }
-	    };
-	 });
 
 
 

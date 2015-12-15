@@ -16,6 +16,8 @@
         restrict: 'EA',
         controller: [
           '$scope', '$window',
+          
+          
           function($scope, $window){
             // Alias this
             var _this = this;
